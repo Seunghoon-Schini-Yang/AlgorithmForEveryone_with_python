@@ -1,23 +1,4 @@
-## Search & Sort
-
 list1 = [6,3,7,4,6,6,8,2,5]
-
-# Sequential Search
-def Seq_Srch(li,val):
-    for i in range(len(li)):
-        if val==li[i]:
-            return i  # return index
-    return -1  # no val in list
-print(Seq_Srch(list1,9))
-print(Seq_Srch(list1,2))  # return index of fisrt val
-
-def Seq_Srch_2(li,val):
-    ans = []
-    for i in range(len(li)):
-        if val==li[i]:
-            ans.append(i)  # return all index of val
-    return ans
-print(Seq_Srch_2(list1,6))
 
 # Selection Sort # Ascending Order
 # O(n**2)
@@ -81,9 +62,53 @@ def Mrg_Sort(li):
     while i2 < len(li2):
         li[ili] = li2[i2]
         i2 += 1
-        ili +=
-
+        ili += 1
 
 # Quick Sort
+def Qck_Sort_1(li) :
+    n = len(li)
+    if n <= 1 :
+        return li
+
+    pivot = []
+    smaller = []
+    bigger = []
+    key = li[-1]
+
+    for i in li :
+        if i > key:
+            bigger.append(i)
+        elif i < key:
+            smaller.append(i)
+        else:
+            pivot.append(i)
+    return Qck_Sort_1(smaller) + pivot + Qck_Sort_1(bigger)
+
+print(Qck_Sort_1([7,3,8,1]))
 
 
+def Qck_Sort_2(li):
+    n = len(li)
+    if n <= 1 :
+        return
+
+    key = li[-1]
+    i=0
+    for j in range(0,n-1) :
+        if li[j]<key :
+            li[i],li[j] = li[j],li[i]
+            i+=1
+    li[i],li[-1] = key,li[i]
+
+    li1 = li[:i]
+    li2 = li[i+1:]
+
+    Qck_Sort_2(li1)
+    Qck_Sort_2(li2)
+
+    li[:i] = li1
+    li[i+1:] = li2
+
+li_ex=[9,6,7,3,8,1]
+Qck_Sort_2(li_ex)
+print(li_ex)
