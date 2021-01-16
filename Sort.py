@@ -98,6 +98,7 @@ def Qck_Sort_2(li):
         if li[j]<key :
             li[i],li[j] = li[j],li[i]
             i+=1
+
     li[i],li[-1] = key,li[i]
 
     li1 = li[:i]
@@ -112,3 +113,19 @@ def Qck_Sort_2(li):
 li_ex=[9,6,7,3,8,1]
 Qck_Sort_2(li_ex)
 print(li_ex)
+
+
+# Bubble Sort
+# O(n^2)
+def Bubl_Sort(li) :
+    n=len(li)
+    i = 1
+    while i == 1 :
+        i = 0
+        for j in range(n-1) :
+            if li[j+1] < li[j] :
+                li[j+1], li[j] = li[j], li[j+1]
+                i = 1
+
+Bubl_Sort(list1)
+print(list1)
