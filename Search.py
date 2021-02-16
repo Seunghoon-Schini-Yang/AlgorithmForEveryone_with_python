@@ -28,13 +28,13 @@ def Binary_Srch_1(li, val) :
     n = len(li)
     idx = 0
     try :
-        if n == 1 and li[n // 2] != val:
+        if n == 1 and li[n // 2] != val :
             idx = '-1'
-        elif li[n // 2] == val:
+        elif li[n // 2] == val :
             idx += n // 2
-        elif val > li[n // 2]:
+        elif val > li[n // 2] :
             idx += n // 2 + 1 + Binary_Srch(li[n // 2 + 1:], val)
-        else:
+        else :
             idx += Binary_Srch(li[:n // 2], val)
         return idx
     except :
